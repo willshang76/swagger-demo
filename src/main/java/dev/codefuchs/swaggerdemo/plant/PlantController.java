@@ -14,8 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/plant")
 public class PlantController implements PlantApi {
-    @Autowired
+
     private PlantService service;
+
+    public PlantController(PlantService service) {
+        this.service = service;
+    }
 
     @Override
     @GetMapping(value = "/all", produces = "application/json")
